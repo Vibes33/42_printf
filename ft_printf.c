@@ -6,7 +6,7 @@
 /*   By: rydelepi <rydelepi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 09:32:15 by rydelepi          #+#    #+#             */
-/*   Updated: 2025/11/01 10:52:38 by rydelepi         ###   ########.fr       */
+/*   Updated: 2025/11/04 09:54:39 by rydelepi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int	conversion(char str, va_list ap)
 		count += ft_putnbr_unsigned(va_arg(ap, unsigned int));
 	else if (str == 'p')
 		count += ft_put_hex_ptr(va_arg(ap, void *));
+	else if (str == '%')
+		count += ft_putchar('%');
 	return (count);
 }
 
@@ -84,30 +86,49 @@ int	ft_printf(const char *str, ...)
 	return (count);
 }
 
-// int main (void)
+// #include <stdio.h>
+// #include <limits.h>
+// int main(void)
 // {
-// 	int i;
-// 	int j;
-// 	unsigned int k;
-// 	unsigned int l;
-// 	char b[] = "gggggggggg";
-// 	char c[] = "gggjjhhhhhhh";
-// 	i = 190;
-// 	j = 130;
-// 	k = 12220;
-// 	l = 33746;
-// 	int var = ft_printf("test d'adresse de ptr : %p et %p ...\n",b, c);
-// 	int var2 = printf("test d'adresse de ptr : %p et %p ...\n",b, c);
-// 	ft_printf("test de caractere : %c et %c ...\n",'H','B');
-// 	printf("resultat de print f : %c et %c ...\n",'H','B');
-// 	ft_printf("test de chiffres : %d et %d ...\n",i,j);
-// 	printf("resultat de print f : %d et %d ...\n",i,j);
-// 	ft_printf("test d'adresse de ptr : %p et %p ...\n",b, c);
-// 	printf("resultat de print f : %p et %p ...\n",b, c);
-// 	ft_printf("test d'adresse de ptr : %x et %X ...\n",j, i);
-// 	printf("resultat de print f : %x et %X ...\n",j, i);
-// 	ft_printf("test de unsigned : %u et %u ...\n",k,l);
-// 	printf("resultat de print f : %u et %u ...\n",k,l);
-// 	ft_printf("return : %d \n",var);
-// 	printf("return : %d", var2);
+// 	int		ret1, ret2;
+// 	printf("\n=== 🔍 TEST DE BASE ===\n");
+// 	ret1 = printf("printf : Salut %s!\n", "Ryan");
+// 	ret2 = ft_printf("printf : Salut %s!\n", "Ryan");
+// 	printf("return printf = %d | return ft_printf = %d\n\n", ret1, ret2);
+// 	printf("=== 🔢 TEST D'ENTIERS ===\n");
+// 	ret1 = printf("printf : %d %i %u\n", 42, -42, 4294967295U);
+// 	ret2 = ft_printf("printf : %d %i %u\n", 42, -42, 4294967295U);
+// 	printf("return printf = %d | return ft_printf = %d\n\n", ret1, ret2);
+// 	printf("=== 🧮 TEST HEXADECIMAL ===\n");
+// 	ret1 = printf("printf : %x %X\n", 255, 255);
+// 	ret2 = ft_printf("printf : %x %X\n", 255, 255);
+// 	printf("return printf = %d | return ft_printf = %d\n\n", ret1, ret2);
+// 	printf("=== 📍 TEST DES POINTEURS ===\n");
+// 	int n = 42;
+// 	ret1 = printf("printf : %p\n", &n);
+// 	ret2 = ft_printf("printf : %p\n", &n);
+// 	printf("return printf = %d | return ft_printf = %d\n\n", ret1, ret2);
+// 	printf("=== 🧠 TESTS DE CAS LIMITES ===\n");
+// 	ret1 = printf("printf : %d | %d | %u | %x\n", 
+//  INT_MAX, INT_MIN, UINT_MAX, 0);
+// 	ret2 = ft_printf("printf : %d | %d | %u | %x\n", 
+//  INT_MAX, INT_MIN, UINT_MAX, 0);
+// 	printf("return printf = %d | return ft_printf = %d\n\n", ret1, ret2);
+// 	printf("=== ⚙️ TEST AVEC %% ET CARACTÈRES ===\n");
+// 	ret1 = printf("printf : %% %c %s\n", 'A', "Test");
+// 	ret2 = ft_printf("printf : %% %c %s\n", 'A', "Test");
+// 	printf("return printf = %d | return ft_printf = %d\n\n", ret1, ret2);
+// 	printf("=== 📏 TEST CHAÎNES VIDES ET NULL ===\n");
+// 	ret1 = printf("printf : %s %p\n", "", NULL);
+// 	ret2 = ft_printf("printf : %s %p\n", "", NULL);
+// 	printf("return printf = %d | return ft_printf = %d\n\n", ret1, ret2);
+// 	printf("=== 🧩 TESTS MIXTES ===\n");
+// 	ret1 = printf("printf : char=%c | str=%s | int=%d | hex=%x | ptr=%p 
+//  | %%\n",
+// 			'Z', "42", 1337, 3735928559U, &n);
+// 	ret2 = ft_printf("printf : char=%c | str=%s | int=%d 
+//  | hex=%x | ptr=%p | %%\n",
+// 			'Z', "42", 1337, 3735928559U, &n);
+// 	printf("return printf = %d | return ft_printf = %d\n\n", ret1, ret2);
+// 	return (0);
 // }
