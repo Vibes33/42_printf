@@ -6,7 +6,7 @@
 /*   By: rydelepi <rydelepi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 10:15:36 by rydelepi          #+#    #+#             */
-/*   Updated: 2025/11/01 10:52:25 by rydelepi         ###   ########.fr       */
+/*   Updated: 2025/11/04 15:48:17 by rydelepi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_putstr(char *str)
 	i = 0;
 	if (!str)
 	{
-		write(1, "(NULL)", 6);
+		write(1, "(null)", 6);
 		return (6);
 	}
 	while (str[i])

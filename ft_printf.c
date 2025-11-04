@@ -6,7 +6,7 @@
 /*   By: rydelepi <rydelepi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 09:32:15 by rydelepi          #+#    #+#             */
-/*   Updated: 2025/11/04 09:54:39 by rydelepi         ###   ########.fr       */
+/*   Updated: 2025/11/04 15:50:12 by rydelepi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,10 @@ int	ft_printf(const char *str, ...)
 
 	i = 0;
 	count = 0;
+	if (!str)
+	{
+		return (-1);
+	}
 	va_start(ap, str);
 	while (str[i])
 	{
@@ -109,9 +113,9 @@ int	ft_printf(const char *str, ...)
 // 	ret2 = ft_printf("printf : %p\n", &n);
 // 	printf("return printf = %d | return ft_printf = %d\n\n", ret1, ret2);
 // 	printf("=== 🧠 TESTS DE CAS LIMITES ===\n");
-// 	ret1 = printf("printf : %d | %d | %u | %x\n", 
+// 	ret1 = printf("printf : %d | %d | %u | %x\n",
 //  INT_MAX, INT_MIN, UINT_MAX, 0);
-// 	ret2 = ft_printf("printf : %d | %d | %u | %x\n", 
+// 	ret2 = ft_printf("printf : %d | %d | %u | %x\n",
 //  INT_MAX, INT_MIN, UINT_MAX, 0);
 // 	printf("return printf = %d | return ft_printf = %d\n\n", ret1, ret2);
 // 	printf("=== ⚙️ TEST AVEC %% ET CARACTÈRES ===\n");
@@ -123,12 +127,10 @@ int	ft_printf(const char *str, ...)
 // 	ret2 = ft_printf("printf : %s %p\n", "", NULL);
 // 	printf("return printf = %d | return ft_printf = %d\n\n", ret1, ret2);
 // 	printf("=== 🧩 TESTS MIXTES ===\n");
-// 	ret1 = printf("printf : char=%c | str=%s | int=%d | hex=%x | ptr=%p 
-//  | %%\n",
-// 			'Z', "42", 1337, 3735928559U, &n);
-// 	ret2 = ft_printf("printf : char=%c | str=%s | int=%d 
-//  | hex=%x | ptr=%p | %%\n",
-// 			'Z', "42", 1337, 3735928559U, &n);
+// 	ret1 = printf("printf : char=%c | str=%s | int=%d | hex=%x 
+//| ptr=%p %%\n",'Z', "42", 1337, 3735928559U, &n);
+// 	ret2 = ft_printf("printf : char=%c | str=%s | int=%d | hex=%x 
+//| ptr=%p %%\n",'Z', "42", 1337, 3735928559U, &n);
 // 	printf("return printf = %d | return ft_printf = %d\n\n", ret1, ret2);
 // 	return (0);
 // }
