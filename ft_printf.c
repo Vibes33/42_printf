@@ -6,7 +6,7 @@
 /*   By: rydelepi <rydelepi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 09:32:15 by rydelepi          #+#    #+#             */
-/*   Updated: 2025/11/04 15:50:12 by rydelepi         ###   ########.fr       */
+/*   Updated: 2025/11/05 13:57:44 by rydelepi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ int	ft_printf(const char *str, ...)
 			count += ft_putchar(str[i]);
 		i++;
 	}
+	va_end(ap);
 	return (count);
 }
 
@@ -128,9 +129,16 @@ int	ft_printf(const char *str, ...)
 // 	printf("return printf = %d | return ft_printf = %d\n\n", ret1, ret2);
 // 	printf("=== 🧩 TESTS MIXTES ===\n");
 // 	ret1 = printf("printf : char=%c | str=%s | int=%d | hex=%x 
-//| ptr=%p %%\n",'Z', "42", 1337, 3735928559U, &n);
+//	| ptr=%p %%\n",'Z', "42", 1337, 3735928559U, &n);
 // 	ret2 = ft_printf("printf : char=%c | str=%s | int=%d | hex=%x 
-//| ptr=%p %%\n",'Z', "42", 1337, 3735928559U, &n);
+//	| ptr=%p %%\n",'Z', "42", 1337, 3735928559U, &n);
 // 	printf("return printf = %d | return ft_printf = %d\n\n", ret1, ret2);
+// 	printf("return printf = %d | return ft_printf = %d\n\n", 
+//	printf(NULL), ft_printf(NULL));
+// 	printf("return printf = %d | return ft_printf = %d\n\n", printf(""), 
+//  ft_printf(""));
+// 	printf("return printf = %d | return ft_printf = %d\n\n", 
+//	printf("%p", NULL), 
+//	ft_printf("%p", NULL));
 // 	return (0);
 // }
